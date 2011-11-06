@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv="Content-Type" tal:attributes="content php: get_bloginfo('html_type') ; charset php: get_bloginfo('charset')" />
+
+<title tal:content="php: wp_title('&laquo;', false, 'right') . get_bloginfo('name')"></title>
+
+<link rel="stylesheet" tal:attributes="href php: get_bloginfo('stylesheet_url')" type="text/css" media="screen" />
+<link rel="pingback" tal:attributes="href php: get_bloginfo('pingback_url')" />
+
+<style type="text/css" media="screen">
+	#page { background: url("<?php bloginfo('stylesheet_directory'); ?>/images/kubrickbg-<?php bloginfo('text_direction'); ?>.jpg") repeat-y top; border: none; }
+</style>
+<style type="text/css" media="screen" tal:replace="php:wp_head()">
+</style>
+</head>
+<body tal:attributes="class php:get_body_class()">
+<div id="page">
+
+<div id="header" role="banner">
+	<div id="headerimg">
+		<h1><a tal:attributes="href php: get_option('home')" tal:content="php: get_bloginfo('name')">bloginfo('name')</a></h1>
+        <div class="description" tal:content="php: get_bloginfo('description')">bloginfo('description')</div>
+	</div>
+</div>
+<hr />
+
+	<div id="content" class="narrowcolumn" role="main">
+
+			<div tal:repeat="item item" tal:attributes="class php:get_post_class();id item/id">
+				<h2><a tal:attributes="href item/permalink" rel="bookmark" tal:content="item/title">タイトル</a></h2>
+				<small tal:content="item/date">x年y月z日</small>
+
+				<div class="entry" tal:content="item/content">
+					あいうえおかきくけ十あいうえおかきくけ十あいうえおかきくけ十あいうえおかきくけ十
+				</div>
+	        <div tal:replace="php: comments_template()">
+			    </div>
+			</div>
+                
+			<div tal:replace="">
+				<h2><a href="#" rel="bookmark" title="">記事のタイトル</a></h2>
+				<small>x年y月z日</small>
+
+				<div class="entry">
+					あいうえおかきくけ十あいうえおかきくけ十あいうえおかきくけ十あいうえおかきくけ十
+				</div>
+
+				<p class="postmetadata">タグ、カテゴリ、コメント</p>
+			</div>
+
+
+		<div class="navigation">
+            <div class="alignleft" tal:content="php: next_posts_link(__('&laquo; Older Entries', 'kubrick'))"></div>
+                <div class="alignright" tal:content="php: previous_posts_link(__('Newer Entries &raquo;', 'kubrick'))"></div>
+		</div>
+
+
+	</div>
+
+
+	<div id="sidebar" role="complementary">
+		<ul tal:content="php: dynamic_sidebar() ? '': ''">
+            dynamic_sidebar()
+		</ul>
+	</div>
+
+<hr />
+<div id="footer" role="contentinfo">
+    <p tal:content="structure php: sprintf(__('%1$s is proudly powered by %2$s', 'kubrick'), get_bloginfo('name'), '<a href=http://wordpress.org/>WordPress</a>')">
+        </p>
+</div>
+</div>
+
+<span tal:replace="php:wp_footer()" />
+</body>
+</html>

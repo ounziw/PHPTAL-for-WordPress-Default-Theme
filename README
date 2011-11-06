@@ -1,0 +1,7 @@
+PHPTAL-for-WordPress-Default-Theme
+
+This is a WordPress Theme, based on Default (kubrick) http://wordpress.org/extend/themes/default
+
+WordPress is simple in that it uses PHP templates, and it allows us to use other design templates.
+
+This template uses a PHPTAL notation, which is xhtml compatible.
