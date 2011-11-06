@@ -31,7 +31,7 @@
 				<h2><a tal:attributes="href item/permalink" rel="bookmark" tal:content="item/title">タイトル</a></h2>
 				<small tal:content="item/date">x年y月z日</small>
 
-				<div class="entry" tal:content="item/content">
+				<div class="entry" tal:content="structure item/content">
 					あいうえおかきくけ十あいうえおかきくけ十あいうえおかきくけ十あいうえおかきくけ十
 				</div>
 	        <div tal:replace="php: comments_template()">

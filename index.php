@@ -18,7 +18,7 @@ function Item($id,$title,$content,$permalink,$date) {
 //$template->title = get_bloginfo("name");
 $myposts = array();
 while( have_posts() ) : the_post();
-$myposts[] = new Item(get_the_ID(),get_the_title(),get_the_content(),get_permalink(),get_the_date());
+$myposts[] = new Item(get_the_ID(),get_the_title(),apply_filters('the_content', get_the_content()),get_permalink(),get_the_date());
 endwhile;
 // put some data into the template context
 $template->item = $myposts;
