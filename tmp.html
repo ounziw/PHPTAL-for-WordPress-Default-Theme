@@ -9,7 +9,7 @@
 <link rel="pingback" tal:attributes="href php: get_bloginfo('pingback_url')" />
 
 <style type="text/css" media="screen">
-	#page { background: url("<?php bloginfo('stylesheet_directory'); ?>/images/kubrickbg-<?php bloginfo('text_direction'); ?>.jpg") repeat-y top; border: none; }
+	#page { background: url("<tal:block tal:content="php: get_bloginfo('stylesheet_directory')" />/images/kubrickbg-<tal:block tal:content="php: get_bloginfo('text_direction')" />.jpg") repeat-y top; border: none; }
 </style>
 <style type="text/css" media="screen" tal:replace="php:wp_head()">
 </style>
