@@ -27,8 +27,8 @@
 
 	<div id="content" class="narrowcolumn" role="main">
 
-			<div tal:repeat="item item" tal:attributes="class php:get_post_class();id item/id">
-				<h2><a tal:attributes="href item/permalink" rel="bookmark" tal:content="item/title">タイトル</a></h2>
+			<div tal:repeat="item item" tal:attributes="class postclass: item/id;id postid: item/id">
+				<h2><a tal:attributes="href permalink: item/id" rel="bookmark" tal:content="item/title">タイトル</a></h2>
 				<small tal:content="item/date">x年y月z日</small>
 
 				<div class="entry" tal:content="structure item/content">

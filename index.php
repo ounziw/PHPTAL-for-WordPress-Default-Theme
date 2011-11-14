@@ -1,5 +1,14 @@
 <?php
 $template = new PHPTAL(TEMPLATEPATH . '/tmp.html');
+function phptal_tales_postclass($src, $nothrow=false) {
+    return 'get_post_class("",'.phptal_tales($src,$nothrow).')';
+}
+function phptal_tales_postid($src, $nothrow=false) {
+    return 'sprintf("post-%d",'.phptal_tales($src,$nothrow).')';
+}
+function phptal_tales_permalink($src, $nothrow=false) {
+    return 'get_permalink('.phptal_tales($src,$nothrow).')';
+}
 class Item {
     public $id;
     public $title;
@@ -7,7 +16,7 @@ class Item {
     public $permalink;
     public $date;
 function Item($id,$title,$content,$permalink,$date) {
-        $this->id = 'post-'.$id;
+        $this->id = $id;
         $this->title = $title;
         $this->content = $content;
         $this->permalink = $permalink;
